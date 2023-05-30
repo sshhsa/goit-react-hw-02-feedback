@@ -1,4 +1,10 @@
-@import-normalize; /* bring in normalize.css styles */
+/* @import-normalize; */
+/* bring in normalize.css styles */
+
+:root {
+  --dark-clr: #000;
+  --light-clr: #fff;
+}
 
 body {
   margin: 0;
