@@ -2,8 +2,14 @@
 /* bring in normalize.css styles */
 
 :root {
-  --dark-clr: #000;
-  --light-clr: #fff;
+  --light-clr-1: #ffffff;
+  --light-clr-2: #e1dcd9;
+
+  --dark-clr-1: #191e29;
+  --dark-clr-2: #132d46;
+  --dark-clr-3: #696e79;
+
+  --accent-clr-1: #01c38d;
 }
 
 body {
