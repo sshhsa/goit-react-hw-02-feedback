@@ -4,7 +4,7 @@ import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
 
 function App() {
   return (
-    <FeedbackOptions initialValue = {0} />
+    <FeedbackOptions good = {0} neutral = {0} bad = {0} />
   );
 };
 
