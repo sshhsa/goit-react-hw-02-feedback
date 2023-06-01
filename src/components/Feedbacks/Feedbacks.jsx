@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import css from './Feedbacks.module.css';
-// import FeedbackOptions from './FeedbackOptions';
+import FeedbackOptions from './FeedbackOptions';
 
 class Feedbacks extends Component {
     static defaultProps = {
@@ -11,37 +11,18 @@ class Feedbacks extends Component {
     }
 
     state = {
-        good: this.props.good,
-        neutral: this.props.neutral,
-        bad: this.props.bad,
-        total: this.props.good + this.props.neutral + this.props.bad,
+        good: 0,
+        neutral: 0,
+        bad: 0,
+        total: 0
     };
 
-    handleGoodFeedback = () => {
+    onLeaveFeedback = (type) => {
         this.setState((previousValue) => {
             return {
-                good: previousValue.good + 1,
+                [type]: previousValue[type] + 1,
             }
-        }, this.countTotalFeedback
-        );
-    }
-
-    handleNeutralFeedback = () => {
-        this.setState((previousValue) => {
-            return {
-                neutral: previousValue.neutral + 1,
-            }
-        }, this.countTotalFeedback
-        );
-    }
-
-    handleBadFeedback = () => {
-        this.setState((previousValue) => {
-            return {
-                bad: previousValue.bad + 1,
-            }
-        }, this.countTotalFeedback
-        );
+        }, this.countTotalFeedback);
     }
 
     countTotalFeedback = () => {
@@ -63,28 +44,10 @@ class Feedbacks extends Component {
 
         return (
             <>
-                {/* <FeedbackOptions
-                    options={{ good, neutral, bad }}
-                    onLeaveFeedback={{
-                        onGoodFeedback: this.handleGoodFeedback,
-                        onNeutralFeedback: this.handleNeutralFeedback,
-                        onBadFeedback: this.handleBadFeedback}}
-                /> */}
-
-                <div className={css.containerButtons}>
-                    <p className={css.description}>Please leave feedback</p>
-                        <ul className={css.feedbackButtons}>
-                            <li>
-                                <button type="button" onClick={this.handleGoodFeedback}>Good</button>
-                            </li>
-                            <li>
-                                <button type="button" onClick={this.handleNeutralFeedback}>Neutral</button>
-                            </li>
-                            <li>
-                                <button type="button" onClick={this.handleBadFeedback}>Bad</button>
-                            </li>
-                        </ul>
-                </div>
+                <FeedbackOptions
+                    options={['good', 'neutral', 'bad']}
+                    onLeaveFeedback={this.onLeaveFeedback}
+                />
 
                 <p className={css.description}>Statistics</p>
                 <ul className={css.feedbackValues}>
