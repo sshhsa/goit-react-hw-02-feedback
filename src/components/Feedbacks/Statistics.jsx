@@ -4,28 +4,25 @@ import css from './Feedbacks.module.css';
 
 function Statistics({ good, neutral, bad, total, positivePercentage }) {
     return (
-        <div className={css.containerValues}>
-            <p className={css.description}>Statistics</p>
             <ul className={css.feedbackValues}>
                 <li>
-                    <span className={css.good}>Good: {good}</span>
+                    <span className={css.textValue}>Good: <span className={css.numberValue}>{good}</span></span>
                 </li>
                 <li>
-                    <span className={css.neutral}>Neutral: {neutral}</span>
+                    <span className={css.textValue}>Neutral: <span className={css.numberValue}>{neutral}</span></span>
                 </li>
                 <li>
-                    <span className={css.bad}>Bad: {bad}</span>
+                    <span className={css.textValue}>Bad: <span className={css.numberValue}>{bad}</span></span>
                 </li>
                 <li>
-                    <span className={css.feedbackTotal}>Total: {total}</span>
+                    <span className={css.textValue}>Total: <span className={css.numberValue}>{total}</span></span>
                 </li>
                 <li>
-                    <span className={css.positiveFeedbacks}>
-                    Positive feedback: {positivePercentage}%
+                    <span className={css.textValue}>
+                    Positive feedback: <span className={css.valuePercentage}>{positivePercentage}%</span>
                     </span>
                 </li>
             </ul>
-        </div>
     );
 }
 

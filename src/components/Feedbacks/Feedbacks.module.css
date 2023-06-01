@@ -1,1 +1,85 @@
 @import 'index.css';
+
+:root {
+    --default-border: 2px dashed var(--accent-clr-1);
+    --default-animation: 400ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.containerFeedbacks {
+    padding: 20px;
+    border: var(--default-border);
+}
+
+.sectionTitle {
+    font-size: 32px;
+    color: var(--light-clr-2);
+}
+
+/* FeedbackOptions */
+
+.feedbackButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 20px 0px;
+
+    min-width: 400px;
+}
+
+.buttonOption {
+    padding: 10px 20px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    border: var(--default-border);
+
+    color: var(--light-clr-1);
+    background-color: var(--dark-clr-1);
+
+    transition: background-color var(--default-animation);
+}
+
+.buttonOption:hover,
+.buttonOption:focus {
+    background-color: var(--dark-clr-2);
+}
+
+/* Statistics */
+
+.notification {
+    margin: 10px 0px;
+    font-size: 22px;
+    color: var(--accent-clr-2);
+}
+
+.feedbackValues {
+    margin: 20px 0px 0px 0px;
+}
+
+.textValue {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+
+    color: var(--light-clr-2);
+}
+
+.numberValue,
+.valuePercentage {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.numberValue {
+    color: var(--light-clr-1);
+}
+
+.valuePercentage {
+    color: var(--accent-clr-1);
+}

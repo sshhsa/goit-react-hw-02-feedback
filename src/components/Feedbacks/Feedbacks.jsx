@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
-// import Section from './Section';
+import Section from './Section';
+import Notification from './Notification';
+
+import css from './Feedbacks.module.css';
 
 class Feedbacks extends Component {
   static defaultProps = {
@@ -43,21 +46,29 @@ class Feedbacks extends Component {
     const feedbackTotal = this.countTotalFeedback();
     const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
 
-    return (
-        <>
+      return (
+        <div className={css.containerFeedbacks}>
+            <Section title="Please leave feedback">
                 <FeedbackOptions
                     options={['good', 'neutral', 'bad']}
                     onLeaveFeedback={this.onLeaveFeedback}
                 />
+            </Section>
 
+            <Section title="Statistics"></Section>
+
+            {feedbackTotal === 0 ?
+            <Notification message={'There is no feedback'}/> :
+            <Section title="">
                 <Statistics
                     good={this.state.good}
                     neutral={this.state.neutral}
                     bad={this.state.bad}
                     total={feedbackTotal}
                     positivePercentage={positiveFeedbackPercentage}
-                    />
-        </>
+                />
+            </Section>}
+        </div>
     );
   }
 }
