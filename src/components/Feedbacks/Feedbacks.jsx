@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import css from './Feedbacks.module.css';
+
 import FeedbackOptions from './FeedbackOptions';
+import Statistics from './Statistics';
+// import Section from './Section';
 
 class Feedbacks extends Component {
   static defaultProps = {
@@ -42,33 +44,20 @@ class Feedbacks extends Component {
     const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
 
     return (
-      <>
-        <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
-          onLeaveFeedback={this.onLeaveFeedback}
-        />
+        <>
+                <FeedbackOptions
+                    options={['good', 'neutral', 'bad']}
+                    onLeaveFeedback={this.onLeaveFeedback}
+                />
 
-        <p className={css.description}>Statistics</p>
-        <ul className={css.feedbackValues}>
-          <li>
-            <span className={css.good}>Good: {this.state.good}</span>
-          </li>
-          <li>
-            <span className={css.neutral}>Neutral: {this.state.neutral}</span>
-          </li>
-          <li>
-            <span className={css.bad}>Bad: {this.state.bad}</span>
-          </li>
-          <li>
-            <span className={css.feedbackTotal}>Total: {feedbackTotal}</span>
-          </li>
-          <li>
-            <span className={css.positiveFeedbacks}>
-              Positive feedback: {positiveFeedbackPercentage}%
-            </span>
-          </li>
-        </ul>
-      </>
+                <Statistics
+                    good={this.state.good}
+                    neutral={this.state.neutral}
+                    bad={this.state.bad}
+                    total={feedbackTotal}
+                    positivePercentage={positiveFeedbackPercentage}
+                    />
+        </>
     );
   }
 }
